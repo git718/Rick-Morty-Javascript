@@ -47,10 +47,11 @@ return div_card
 }
 
 
-// btn_next.addEventListener('click', moveOn)
-// function moveOn() {
+btn_next.addEventListener('click', moveOn)
+function moveOn() {
+div_cards.innerHTML = ""
 
-// }
+}
 
 
 
