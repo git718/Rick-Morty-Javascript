@@ -11,9 +11,10 @@ async function prepare() {
     if (response.ok) {
         data = await response.json();
         data.results.forEach(elem => { div_cards.append(create_card(elem)) })
-    } else {alert(`error`)}
+    } else {alert(`failure to fetch data from https://rickandmortyapi.com/api/character`)}
 }
-prepare()
+prepare()  
+
 
 const search_input = document.createElement('input')
 div_buttons.append(search_input)
@@ -29,6 +30,7 @@ function sort_cards(event) {
     array.forEach(elem => div_cards.append(create_card(elem)))
     return div_cards
 }
+
 
 function create_card(object) {
 const div_card = document.createElement('div')
@@ -49,8 +51,27 @@ return div_card
 
 btn_next.addEventListener('click', moveOn)
 function moveOn() {
-div_cards.innerHTML = ""
+div_cards.innerHTML = "";
+async function prepare() {
+    let response = await fetch(data.info.next);
+        data = await response.json();
+        data.results.forEach(elem => { div_cards.append(create_card(elem)) })
+}
+prepare() 
+sort_cards()
+}
 
+
+btn_back.addEventListener('click', moveBack)
+function moveBack() {
+div_cards.innerHTML = "";
+async function prepare() {
+    let response = await fetch(data.info.prev);
+        data = await response.json();
+        data.results.forEach(elem => { div_cards.append(create_card(elem)) })
+}
+prepare() 
+sort_cards()
 }
 
 
