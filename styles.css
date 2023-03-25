@@ -55,6 +55,7 @@ h1:hover {
   width: 800px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 10px;
 }
 
 .card {
