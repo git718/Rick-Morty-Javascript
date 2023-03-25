@@ -7,11 +7,6 @@ const btn_back = document.querySelector('.back')
 const div_cards = document.querySelector('.cards')
 const div_buttons = document.querySelector('.buttons')
 const select = document.getElementById('worlds')
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 077460273f8c8198d9878c039e7ed0d9b22c538c
 
 async function prepare() {
     let response = await fetch('https://rickandmortyapi.com/api/character');
