@@ -16,8 +16,6 @@ async function prepare() {
 }
 prepare()  
 
-<<<<<<< HEAD
-=======
 // function create_options() {
 //     for (let y = 1; y < 127 ; y++) {
 //     let x = `https://rickandmortyapi.com/api/location/${y}`
@@ -35,7 +33,6 @@ prepare()
 //     }
 // }
 // create_options()
->>>>>>> 744fc3e51754cd1b8e3bb03ac76e62376e039d23
 
 const search_input = document.createElement('input')
 const _input = document.createElement('input')
