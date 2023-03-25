@@ -70,19 +70,25 @@ return div_card
 btn_next.addEventListener('click', moveOn)
 function moveOn() {
 div_cards.innerHTML = "";
+if (data.info.next != null) {
 async function prepare() {
     let response = await fetch(data.info.next);
         data = await response.json();
         data.results.forEach(elem => { div_cards.append(create_card(elem)) })
+        
 }
 prepare() 
 sort_cards()
+} else {
+    prepare()
+}
 }
 
 
 btn_back.addEventListener('click', moveBack)
 function moveBack() {
 div_cards.innerHTML = "";
+if (data.info.prev != null) {
 async function prepare() {
     let response = await fetch(data.info.prev);
         data = await response.json();
@@ -90,6 +96,9 @@ async function prepare() {
 }
 prepare() 
 sort_cards()
+} else {
+     prepare()
+}
 }
 
 
