@@ -1,6 +1,5 @@
 'use strict';
 
-
 let data;
 const btn_next = document.querySelector('.next')
 const btn_back = document.querySelector('.back')
@@ -17,23 +16,6 @@ async function prepare() {
 }
 prepare()  
 
-function create_options() {
-    for (let y = 1; y < 127 ; y++) {
-    let x = `https://rickandmortyapi.com/api/location/${y}`
-        let option = document.createElement('option')
-        async function get_data() {
-            let response = await fetch(x);
-            if (response.ok) {
-                data = await response.json();
-                option.value = data.name;
-                option.innerText = data.name;
-                select.append(option)
-            } else {alert(`failure to fetch data from https://rickandmortyapi.com/api/location/$`)}
-        }
-        get_data() 
-    }
-}
-create_options()
 
 const search_input = document.createElement('input')
 const _input = document.createElement('input')
@@ -45,8 +27,8 @@ search_input.placeholder = 'find character'
 
 
 search_input.addEventListener('input', sort_cards)
-function sort_cards(event) {
-    let array = data.results.filter(elem => elem.name.toLowerCase().includes(event.target.value.trim()))
+function sort_cards() {
+    let array = data.results.filter(elem => elem.name.toLowerCase().includes(search_input.value.trim()))
     div_cards.innerHTML = "";
     array.forEach(elem => div_cards.append(create_card(elem)))
     return div_cards
@@ -73,7 +55,7 @@ return div_card
 btn_next.addEventListener('click', moveOn)
 function moveOn() {
 div_cards.innerHTML = "";
-if (data.info.next != null) {
+if (data.info.next !== null) {
 async function prepare() {
     let response = await fetch(data.info.next);
         data = await response.json();
@@ -81,9 +63,8 @@ async function prepare() {
         
 }
 prepare() 
-sort_cards()
 } else {
-    prepare()
+data.results.forEach(elem => { div_cards.append(create_card(elem)) })
 }
 }
 
@@ -91,22 +72,37 @@ sort_cards()
 btn_back.addEventListener('click', moveBack)
 function moveBack() {
 div_cards.innerHTML = "";
-if (data.info.prev != null) {
+if (data.info.prev !== null) {
 async function prepare() {
     let response = await fetch(data.info.prev);
         data = await response.json();
         data.results.forEach(elem => { div_cards.append(create_card(elem)) })
 }
 prepare() 
-sort_cards()
 } else {
-     prepare()
+ data.results.forEach(elem => { div_cards.append(create_card(elem)) })
 }
 }
 
 
 
-
+// function create_options() {
+//     for (let y = 1; y < 127 ; y++) {
+//     let x = `https://rickandmortyapi.com/api/location/${y}`
+//         let option = document.createElement('option')
+//         async function prepare() {
+//             let response = await fetch(x);
+//             if (response.ok) {
+//                 data = await response.json();
+//                 option.value = data.name;
+//                 option.innerText = data.name;
+//                 select.append(option)
+//             } else {alert(`failure to fetch data from https://rickandmortyapi.com/api/location/$`)}
+//         }
+//         prepare()
+//     }
+// }
+// create_options()
 
 
 
