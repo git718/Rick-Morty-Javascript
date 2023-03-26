@@ -1,6 +1,6 @@
 'use strict';
 
-let data;
+let data = {};
 const btn_next = document.querySelector('.next')
 const btn_back = document.querySelector('.back')
 const div_cards = document.querySelector('.cards')
@@ -12,12 +12,25 @@ async function prepare() {
     if (response.ok) {
         data = await response.json();
         data.results.forEach(elem => { div_cards.append(create_card(elem)) })
+        create_options(data)
     } else {alert(`failure to fetch data from https://rickandmortyapi.com/api/character`)}
-    create_options(data)
+   
 }
 prepare()  
 
 
+function create_options() {
+    select.innerHTML = ''
+        let arr = data.results.map((elem) => elem.location.name)
+        let uniquePlanets = [...new Set(arr)];
+        for (let planet of uniquePlanets) {
+            const option = document.createElement('option');
+            option.innerText = planet;
+            select.append(option);  
+        }
+    }
+
+  
 
 const search_input = document.createElement('input')
 const _input = document.createElement('input')
@@ -90,16 +103,6 @@ prepare()
 }
 
 
-
-function create_options() {
-    select.innerHTML = ''
-
-    for (let x of data.results) {
-        let option = document.createElement('option')
-        option.textContent = x.location.name;
-        select.append(option)
-    }
-    }
 
 
 
