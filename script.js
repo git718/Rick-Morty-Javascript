@@ -21,16 +21,36 @@ prepare()
 
 function create_options() {
     select.innerHTML = ''
+    const optionSelected = document.createElement('option');
+    optionSelected.value = 'Pick a planet';
+    optionSelected.innerText = 'Pick a planet';
+    optionSelected.selected = true;
+    optionSelected.hidden = true;
+    select.append(optionSelected);
         let arr = data.results.map((elem) => elem.location.name)
         let uniquePlanets = [...new Set(arr)];
         for (let planet of uniquePlanets) {
             const option = document.createElement('option');
             option.innerText = planet;
-            select.append(option);  
+            option.value = planet;
+            select.append(option);      
         }
     }
+    
+select.addEventListener('change', filterData) 
+function filterData() {
+    for (let x of select) {
+        if (x.selected === true) {
+            div_cards.innerHTML = '';
+            for (let y of data.results) {  
+                if (y.location.name === x.value) {
+                div_cards.append(create_card(y))
+            };
+        }
+    } 
+}
+}
 
-  
 
 const search_input = document.createElement('input')
 const _input = document.createElement('input')
