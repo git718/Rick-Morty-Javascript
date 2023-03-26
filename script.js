@@ -13,26 +13,11 @@ async function prepare() {
         data = await response.json();
         data.results.forEach(elem => { div_cards.append(create_card(elem)) })
     } else {alert(`failure to fetch data from https://rickandmortyapi.com/api/character`)}
+    create_options(data)
 }
 prepare()  
 
-// function create_options() {
-//     for (let y = 1; y < 127 ; y++) {
-//     let x = `https://rickandmortyapi.com/api/location/${y}`
-//         let option = document.createElement('option')
-//         async function get_data() {
-//             let response = await fetch(x);
-//             if (response.ok) {
-//                 data = await response.json();
-//                 option.value = data.name;
-//                 option.innerText = data.name;
-//                 select.append(option)
-//             } else {alert(`failure to fetch data from https://rickandmortyapi.com/api/location/$`)}
-//         }
-//         get_data() 
-//     }
-// }
-// create_options()
+
 
 const search_input = document.createElement('input')
 const _input = document.createElement('input')
@@ -77,7 +62,8 @@ async function prepare() {
     let response = await fetch(data.info.next);
         data = await response.json();
         data.results.forEach(elem => { div_cards.append(create_card(elem)) })
-        
+    create_options(data)
+
 }
 prepare() 
 } else {
@@ -94,6 +80,8 @@ async function prepare() {
     let response = await fetch(data.info.prev);
         data = await response.json();
         data.results.forEach(elem => { div_cards.append(create_card(elem)) })
+    create_options(data)
+
 }
 prepare() 
 } else {
@@ -103,23 +91,17 @@ prepare()
 
 
 
-// function create_options() {
-//     for (let y = 1; y < 127 ; y++) {
-//     let x = `https://rickandmortyapi.com/api/location/${y}`
-//         let option = document.createElement('option')
-//         async function prepare() {
-//             let response = await fetch(x);
-//             if (response.ok) {
-//                 data = await response.json();
-//                 option.value = data.name;
-//                 option.innerText = data.name;
-//                 select.append(option)
-//             } else {alert(`failure to fetch data from https://rickandmortyapi.com/api/location/$`)}
-//         }
-//         prepare()
-//     }
-// }
-// create_options()
+function create_options() {
+    select.innerHTML = ''
+
+    for (let x of data.results) {
+        let option = document.createElement('option')
+        option.textContent = x.location.name;
+        select.append(option)
+    }
+    }
+
+
 
 
 
