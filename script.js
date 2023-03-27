@@ -66,7 +66,7 @@ const search_input = document.createElement('input')
 div_buttons.append(search_input)
 search_input.style.width = '200px'
 search_input.style.height = '30px'
-search_input.placeholder = 'find character'
+search_input.placeholder = 'filter by name'
 
 
 search_input.addEventListener('input', sort_cards)
