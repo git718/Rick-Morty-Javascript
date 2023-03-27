@@ -55,8 +55,6 @@ function filterData() {
 
 clear.addEventListener('click', function clearInput() {
 search_input.value = '';
-data.results.forEach(elem => { div_cards.append(create_card(elem)) })
-
 })
 
 
@@ -110,6 +108,7 @@ async function prepare() {
         data.results.forEach(elem => { div_cards.append(create_card(elem)) })
     create_options(data)
     sort_cards()
+    
 
 }
 prepare() 
