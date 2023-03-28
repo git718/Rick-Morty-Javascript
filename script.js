@@ -1,9 +1,8 @@
 'use strict';
 
 let data = {};
-
-
-
+let count = 1;
+const counter = document.getElementById('result')
 const btn_next = document.querySelector('.next')
 const btn_back = document.querySelector('.back')
 const div_cards = document.querySelector('.cards')
@@ -141,13 +140,16 @@ const species = document.createElement('span');
 function buy_character()
  {
    basket.append(div_card)
-  
+  counter.innerText = count;
+  count++
+
 }
 
 
 empty.addEventListener('click', emptyBasket)
 function emptyBasket() {
-    basket.innerHTML = ''
+    basket.innerHTML = '';
+    counter.innerText = '0';
 }
 
 return div_card
