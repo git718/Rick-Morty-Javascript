@@ -83,17 +83,34 @@ function sort_cards() {
 
 function create_card(object) {
 const div_card = document.createElement('div');
+const div_card_hidden = document.createElement('div');
+div_card_hidden.style.display = 'none';
 div_card.className = 'div_one';
+div_card_hidden.className = 'div_hidden';
 const cardImage = document.createElement('img');
 const name1 = document.createElement('h2');
 const species = document.createElement('span');
+const gender = document.createElement('p');
+    gender.textContent = object.gender;
     cardImage.src = object.image;
     name1.textContent = object.name;
     species.textContent = object.species;
-
+   div_card_hidden.append(gender);
     div_card.append(cardImage);
     div_card.append(name1);
     div_card.append(species);
+    $(cardImage).mouseenter(function(){
+        $(cardImage).animate({
+            height: '330px',
+            opacity: '50%',
+    });
+      });  
+    $(cardImage).mouseleave(function(){
+        $(cardImage).animate({
+            height: '300px',
+            opacity: '100%'
+        });
+      });  
     
 return div_card
 }
