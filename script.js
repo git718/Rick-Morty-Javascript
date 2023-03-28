@@ -100,7 +100,7 @@ function refreshPage() {
 basket_btn.addEventListener('click', showBasket)
 function showBasket() {
 if (basket.innerHTML === '') {
-alert('Basket empty')
+alert('Basket is empty')
        } else {
 div_cards.innerHTML = ''
 div_cards.append(basket)
@@ -118,12 +118,9 @@ div_card_hidden.className = 'div_hidden';
 const cardImage = document.createElement('img');
 const name1 = document.createElement('h2');
 const species = document.createElement('span');
-const gender = document.createElement('p');
-    gender.textContent = object.gender;
     cardImage.src = object.image;
     name1.textContent = object.name;
     species.textContent = object.species;
-   div_card_hidden.append(gender);
     div_card.append(cardImage);
     div_card.append(name1);
     div_card.append(species);
@@ -144,7 +141,7 @@ const gender = document.createElement('p');
 function buy_character()
  {
    basket.append(div_card)
-   counter++
+  
 }
 
 
