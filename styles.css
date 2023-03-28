@@ -47,16 +47,18 @@ h1:hover {
 
 .next,
 .back,
-.basket {
+.basket,
+.refresh {
   width: 150px;
   height: 40px;
   font-family: Glossy;
-  font-size: 25px;
+  font-size: 20px;
   color: #1d4adc;
   border-radius: 5px;
   opacity: 70%;
   cursor: pointer;
 }
+
 .clear {
   
   width: 40px;
@@ -70,11 +72,8 @@ h1:hover {
 }
 
 .buttons {
-  display: flex;
-  flex-direction: column;
   row-gap: 5px;
   width: 900px;
-  margin-bottom: 10px;
 }
 
 
@@ -96,4 +95,11 @@ h1:hover {
   flex-wrap: wrap;
   gap: 10px 10px;
 }
+span {
+  font-size: 20px;
+}
+.input_button {
+  margin-top: 10px;
+  margin-bottom: 5px;
 
+}

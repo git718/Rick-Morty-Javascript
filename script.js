@@ -1,6 +1,9 @@
 'use strict';
 
 let data = {};
+
+
+
 const btn_next = document.querySelector('.next')
 const btn_back = document.querySelector('.back')
 const div_cards = document.querySelector('.cards')
@@ -11,6 +14,8 @@ const inputButton = document.querySelector('.input_button')
 const basket = document.createElement('div')
 basket.className = 'div_basket'
 const basket_btn = document.querySelector('.basket')
+const empty = document.querySelector('.empty')
+const refresh = document.querySelector('.refresh')
 
 
 
@@ -21,6 +26,7 @@ async function prepare() {
         data.results.forEach(elem => { div_cards.append(create_card(elem)) })
         create_options(data)
         sort_cards()
+       
     } else {alert(`failure to fetch data from https://rickandmortyapi.com/api/character`)}
    
 }
@@ -33,7 +39,7 @@ function create_options() {
     select.innerHTML = ''
     const optionSelected = document.createElement('option');
     optionSelected.value = 'Pick a planet';
-    optionSelected.innerText = 'Pick a planet';
+    optionSelected.innerText = 'Sort by planet';
     optionSelected.selected = true;
     optionSelected.hidden = true;
     select.append(optionSelected);
@@ -86,6 +92,21 @@ function sort_cards() {
 
 
 
+refresh.addEventListener('click', refreshPage)
+function refreshPage() {
+    prepare()
+}
+
+basket_btn.addEventListener('click', showBasket)
+function showBasket() {
+if (basket.innerHTML === '') {
+alert('Basket empty')
+       } else {
+div_cards.innerHTML = ''
+div_cards.append(basket)
+       }
+}
+
 
 
 function create_card(object) {
@@ -118,19 +139,20 @@ const gender = document.createElement('p');
             opacity: '100%'
         });
       });  
-    
-   
-div_card.addEventListener('click', buy_character)
-function buy_character(){
+
+      div_card.addEventListener('click', buy_character)
+function buy_character()
  {
    basket.append(div_card)
+   counter++
 }
-basket_btn.addEventListener('click', showBasket)
-function showBasket() {
-   div_cards.innerHTML = ''
-   div_cards.append(basket)
+
+
+empty.addEventListener('click', emptyBasket)
+function emptyBasket() {
+    basket.innerHTML = ''
 }
-}
+
 return div_card
 }
 
@@ -165,8 +187,6 @@ async function prepare() {
         data.results.forEach(elem => { div_cards.append(create_card(elem)) })
     create_options(data)
     sort_cards()
-
-
 }
 prepare() 
 } else {
