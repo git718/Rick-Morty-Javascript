@@ -7,6 +7,7 @@ const div_cards = document.querySelector('.cards')
 const div_buttons = document.querySelector('.buttons')
 const select = document.getElementById('worlds')
 const clear = document.querySelector('.clear')
+const inputButton = document.querySelector('.input_button')
 
 async function prepare() {
     let response = await fetch('https://rickandmortyapi.com/api/character');
@@ -61,8 +62,8 @@ search_input.value = '';
 
 const search_input = document.createElement('input')
 
-div_buttons.append(search_input)
-search_input.style.width = '200px'
+inputButton.append(search_input)
+search_input.style.width = '260px'
 search_input.style.height = '30px'
 search_input.placeholder = 'filter by name'
 
