@@ -139,6 +139,7 @@ const species = document.createElement('span');
       div_card.addEventListener('click', buy_character)
 function buy_character()
  {
+    div_card.removeEventListener('click', buy_character)
    basket.append(div_card)
   counter.innerText = count;
   count++
