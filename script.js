@@ -149,6 +149,7 @@ function buy_character()
 empty.addEventListener('click', emptyBasket)
 function emptyBasket() {
     basket.innerHTML = '';
+    count = 1;
     counter.innerText = '0';
 }
 
