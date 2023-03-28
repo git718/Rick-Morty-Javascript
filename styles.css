@@ -46,7 +46,8 @@ h1:hover {
 }
 
 .next,
-.back {
+.back,
+.basket {
   width: 150px;
   height: 40px;
   font-family: Glossy;
@@ -81,6 +82,11 @@ h1:hover {
   display: flex;
 }
 
+.div_basket{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 .cards {
   width: 1000px;
   margin-left: auto;

@@ -8,6 +8,11 @@ const div_buttons = document.querySelector('.buttons')
 const select = document.getElementById('worlds')
 const clear = document.querySelector('.clear')
 const inputButton = document.querySelector('.input_button')
+const basket = document.createElement('div')
+basket.className = 'div_basket'
+const basket_btn = document.querySelector('.basket')
+
+
 
 async function prepare() {
     let response = await fetch('https://rickandmortyapi.com/api/character');
@@ -20,6 +25,8 @@ async function prepare() {
    
 }
 prepare()  
+
+
 
 
 function create_options() {
@@ -112,6 +119,18 @@ const gender = document.createElement('p');
         });
       });  
     
+   
+div_card.addEventListener('click', buy_character)
+function buy_character(){
+ {
+   basket.append(div_card)
+}
+basket_btn.addEventListener('click', showBasket)
+function showBasket() {
+   div_cards.innerHTML = ''
+   div_cards.append(basket)
+}
+}
 return div_card
 }
 
