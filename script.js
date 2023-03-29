@@ -66,9 +66,7 @@ function filterData() {
 } 
 }
 
-clear.addEventListener('click', function clearInput() {
-search_input.value = '';
-})
+
 
 
 
@@ -86,8 +84,21 @@ function sort_cards() {
     div_cards.innerHTML = "";
     array.forEach(elem => div_cards.append(create_card(elem)))
 
+    search_input.addEventListener('mouseleave', clearValue)
+    search_input.addEventListener('keypress=return', clearValue)
+
+    function clearValue() {
+       {
+        search_input.value = '';
+        sort_cards()
+    }
+      
+        }
+
     return div_cards
 }
+
+
 
 
 
