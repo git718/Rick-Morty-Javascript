@@ -22,7 +22,7 @@ body {
 div.container {
   margin-left: auto;
   margin-right: auto;
-  width: 1000px;
+  width: 1050px;
   padding: 10px;
 }
 
@@ -62,8 +62,8 @@ h1:hover {
 
 .buttons {
   display: grid;
-  grid-template-columns: 3fr 1fr;
-  width: 1050px;
+  grid-template-columns: 4fr 1fr;
+ 
 }
 
 
@@ -74,10 +74,10 @@ h1:hover {
 .div_basket{
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
 }
 .cards {
-  width: 1050px;
+ 
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
@@ -94,7 +94,7 @@ h1:hover {
 
 #name1,
 #species {
-  width: 250px;
+  width: 200px;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
