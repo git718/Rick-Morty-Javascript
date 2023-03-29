@@ -76,13 +76,13 @@ h1:hover {
   gap: 10px;
 }
 .cards {
-  width: 1000px;
+  width: 1050px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 10px;
+  gap: 5px 5px;
 }
 
 .input_button {
@@ -91,3 +91,10 @@ h1:hover {
 
 }
 
+#name1,
+#species {
+  width: 250px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

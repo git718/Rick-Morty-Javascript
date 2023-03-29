@@ -126,8 +126,14 @@ div_card_hidden.style.display = 'none';
 div_card.className = 'div_one';
 div_card_hidden.className = 'div_hidden';
 const cardImage = document.createElement('img');
+cardImage.style.width = '250px';
+cardImage.style.height = '250px';
 const name1 = document.createElement('h2');
+name1.setAttribute('id', 'name1');
 const species = document.createElement('span');
+species.setAttribute('id', 'species');
+
+
     cardImage.src = object.image;
     name1.textContent = object.name;
     species.textContent = object.species;
@@ -136,13 +142,11 @@ const species = document.createElement('span');
     div_card.append(species);
     $(cardImage).mouseenter(function(){
         $(cardImage).animate({
-            height: '330px',
             opacity: '50%',
     });
       });  
     $(cardImage).mouseleave(function(){
         $(cardImage).animate({
-            height: '300px',
             opacity: '100%'
         });
       });  
