@@ -61,8 +61,9 @@ h1:hover {
 
 
 .buttons {
-  row-gap: 5px;
-  width: 900px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  width: 1050px;
 }
 
 
