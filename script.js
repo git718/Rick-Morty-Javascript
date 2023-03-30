@@ -90,6 +90,7 @@ function sort_cards() {
 search_input.addEventListener('focusout', clearValue)
 function clearValue() {
         search_input.value = '';
+    sort_cards()
     
 }
 
