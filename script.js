@@ -67,7 +67,10 @@ function filterData() {
 }
 
 
-
+select.addEventListener('focusout', defaultSelect)
+function defaultSelect() {
+      create_options()    
+}
 
 
 const search_input = document.createElement('input')
@@ -89,7 +92,7 @@ function sort_cards() {
 
 search_input.addEventListener('focusout', clearValue)
 function clearValue() {
-        search_input.value = '';
+    search_input.value = '';
     sort_cards()
     
 }
