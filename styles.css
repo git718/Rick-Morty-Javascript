@@ -93,7 +93,8 @@ h1:hover {
 }
 
 #name1,
-#species {
+#species,
+#world {
   width: 200px;
   text-overflow: ellipsis;
   overflow: hidden;

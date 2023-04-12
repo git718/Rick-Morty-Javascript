@@ -35,7 +35,7 @@ prepare()
 
 
 function create_options() {
-    select.innerHTML = ''
+    select.innerHTML = ""
     const optionSelected = document.createElement('option');
     optionSelected.value = 'Pick a planet';
     optionSelected.innerText = 'Sort by planet';
@@ -51,25 +51,30 @@ function create_options() {
             select.append(option);      
         }
     }
+ 
     
 select.addEventListener('change', filterData) 
 function filterData() {
     for (let x of select) {
-        if (x.selected === true) {
+        if (x.selected == true) {
             div_cards.innerHTML = '';
             for (let y of data.results) {  
                 if (y.location.name === x.value) {
                 div_cards.append(create_card(y))
             } 
         }
-    } 
+    } else if (x.selected.value == "Sort by planet") {
+        div_cards.innerHTML = '';
+        create_card(data.results)
+    }
 } 
 }
 
 
 select.addEventListener('focusout', defaultSelect)
 function defaultSelect() {
-      create_options()    
+      create_options() 
+    
 }
 
 
@@ -78,7 +83,7 @@ const search_input = document.createElement('input')
 inputButton.append(search_input)
 search_input.style.width = '260px'
 search_input.style.height = '30px'
-search_input.placeholder = 'filter by name'
+search_input.placeholder = 'Filter by name'
 
 
 search_input.addEventListener('input', sort_cards)
@@ -101,8 +106,41 @@ function clearValue() {
 
 refresh.addEventListener('click', refreshPage)
 function refreshPage() {
+search_input.placeholder = 'Filter by Name, Species, & Planet'
+ select.style.display = "none"
+   div_cards.innerHTML = "";
+    for (let i = 1; i <= 42; i++) {
+    async function prepare() {
+        let response = await fetch(`https://rickandmortyapi.com/api/character?page=${i}`);
+        if (response.ok) {
+            data = await response.json();
+            data.results.forEach(elem => { div_cards.append(create_card(elem)) })
+        
+        } else {alert(`failure to fetch data from https://rickandmortyapi.com/api/character`)}
+    }
     prepare()
 }
+
+
+
+search_input.removeEventListener('input', sort_cards)
+search_input.removeEventListener("focusout", clearValue)
+search_input.addEventListener("input", sorthThemAll)
+function sorthThemAll() {
+for (let div of div_cards.children) {
+    if (div.innerText.toLowerCase().includes(search_input.value)) {
+        div.style.display = "block";
+    }  else if (!div.innerText.toLowerCase().includes(search_input.value))
+    {div.style.display = "none";}
+}
+}
+}
+
+
+
+
+
+
 
 basket_btn.addEventListener('click', showBasket)
 function showBasket() {
@@ -129,14 +167,19 @@ const name1 = document.createElement('h2');
 name1.setAttribute('id', 'name1');
 const species = document.createElement('span');
 species.setAttribute('id', 'species');
+const world = document.createElement('span');
+world.style.display = "block"
+world.setAttribute('id', 'world');
 
 
     cardImage.src = object.image;
     name1.textContent = object.name;
     species.textContent = object.species;
+    world.textContent = object.location.name;
     div_card.append(cardImage);
     div_card.append(name1);
     div_card.append(species);
+    div_card.append(world);
     $(cardImage).mouseenter(function(){
         $(cardImage).animate({
             opacity: '50%',
@@ -172,6 +215,8 @@ return div_card
 
 btn_next.addEventListener('click', moveOn)
 function moveOn() {
+search_input.placeholder = 'Filter by name';
+ select.style.display = "inline"
 div_cards.innerHTML = "";
 if (data.info.next !== null) {
 async function prepare() {
@@ -180,7 +225,7 @@ async function prepare() {
         data.results.forEach(elem => { div_cards.append(create_card(elem)) })
     create_options(data)
     sort_cards()
-    
+  
 
 }
 prepare() 
@@ -192,6 +237,8 @@ data.results.forEach(elem => { div_cards.append(create_card(elem)) })
 
 btn_back.addEventListener('click', moveBack)
 function moveBack() {
+search_input.placeholder = 'Filter by name';
+ select.style.display = "inline"
 div_cards.innerHTML = "";
 if (data.info.prev !== null) {
 async function prepare() {
@@ -200,6 +247,7 @@ async function prepare() {
         data.results.forEach(elem => { div_cards.append(create_card(elem)) })
     create_options(data)
     sort_cards()
+ 
 }
 prepare() 
 } else {
