@@ -84,7 +84,8 @@ const search_input = document.createElement('input')
 inputButton.append(search_input)
 search_input.style.width = '260px'
 search_input.style.height = '30px'
-search_input.placeholder = 'Filter by name'
+search_input.placeholder = 'Filter by Name, Species, & Planet'
+
 
 
 search_input.addEventListener('input', sort_cards)
@@ -144,12 +145,14 @@ page_hidden.addEventListener('click', return_pages)
 function return_pages() {
     count_n = 0;
     page.innerText = 0;
+    select.style.display = "inline"
+    search_input.value = "";
     basket_btn.addEventListener('click', showBasket) 
     direction_buttons.style.display = "grid";
     basket.style.display = "flex";
     page_hidden.style.display =  "none";
-  
     prepare();
+    
  
 } 
 
@@ -228,7 +231,6 @@ return div_card
 btn_next.addEventListener('click', moveOn)
 function moveOn() {
 
-search_input.placeholder = 'Filter by name';
  select.style.display = "inline"
 div_cards.innerHTML = "";
 if (data.info.next !== null) {
@@ -270,7 +272,6 @@ page.textContent = count_n;
 
 btn_back.addEventListener('click', moveBack)
 function moveBack() {
-search_input.placeholder = 'Filter by name';
  select.style.display = "inline"
 div_cards.innerHTML = "";
 if (data.info.prev !== null) {
