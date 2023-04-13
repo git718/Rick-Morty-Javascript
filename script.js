@@ -62,19 +62,18 @@ function filterData() {
                 if (y.location.name === x.value) {
                 div_cards.append(create_card(y))
             } 
-        }
-    } else if (x.selected.value == "Sort by planet") {
-        div_cards.innerHTML = '';
-        create_card(data.results)
-    }
+            }
+        } 
+    } 
 } 
-}
+
 
 
 select.addEventListener('focusout', defaultSelect)
 function defaultSelect() {
       create_options() 
-    
+      div_cards.innerHTML = '';
+      data.results.forEach(elem => { div_cards.append(create_card(elem)) })
 }
 
 
@@ -95,7 +94,7 @@ function sort_cards() {
     return div_cards
 }
 
-search_input.addEventListener('focusout', clearValue)
+
 function clearValue() {
     search_input.value = '';
     sort_cards()
@@ -224,6 +223,7 @@ async function prepare() {
         data = await response.json();
         data.results.forEach(elem => { div_cards.append(create_card(elem)) })
     create_options(data)
+    clearValue()
     sort_cards()
   
 
@@ -246,6 +246,7 @@ async function prepare() {
         data = await response.json();
         data.results.forEach(elem => { div_cards.append(create_card(elem)) })
     create_options(data)
+    clearValue()
     sort_cards()
  
 }
