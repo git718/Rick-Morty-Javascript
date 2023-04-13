@@ -101,7 +101,7 @@ h1:hover {
 
 .direction_buttons {
   display: grid;
-  grid-template-columns: 150px 50px 50px;
+  grid-template-columns: 110px 20px 20px;
   grid-template-rows: 50px 50px;
 }
 

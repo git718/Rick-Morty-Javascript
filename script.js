@@ -143,8 +143,8 @@ for (let div of div_cards.children) {
 
 page_hidden.addEventListener('click', return_pages)
 function return_pages() {
-    count_n = 0;
-    page.innerText = 0;
+    count_n = 1;
+    page.innerText = 1;
     select.style.display = "inline"
     search_input.value = "";
     basket_btn.addEventListener('click', showBasket) 
@@ -251,18 +251,18 @@ data.results.forEach(elem => { div_cards.append(create_card(elem)) })
 }
 }
 
-let count_n = 0;
+let count_n = 1;
 page.textContent = count_n;
 btn_next.addEventListener('click', count_next)
 btn_back.addEventListener('click', count_back)
 function count_next() {
-    if (count_n < 41) {
+    if (count_n <= 41) {
  count_n++;
  page.textContent = count_n;
     } else {page.textContent = ".."}
  }
 function count_back() { 
-    if (count_n > 0) {
+    if (count_n > 1) {
 count_n--;
 page.textContent = count_n;
     } else {page.textContent = ".."}
