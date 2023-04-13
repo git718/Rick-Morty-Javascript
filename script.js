@@ -16,6 +16,12 @@ const basket_btn = document.querySelector('.basket')
 const empty = document.querySelector('.empty')
 const refresh = document.querySelector('.refresh')
 select.style.width = '260px';
+const page = document.querySelector(".page")
+const page_hidden = document.querySelector(".page_hidden")
+page_hidden.style.cursor = 'pointer'
+const direction_buttons = document.querySelector(".direction_buttons")
+
+
 
 async function prepare() {
     let response = await fetch('https://rickandmortyapi.com/api/character');
@@ -101,6 +107,9 @@ function clearValue() {
 
 refresh.addEventListener('click', refreshPage)
 function refreshPage() {
+    direction_buttons.style.display = 'none'
+    page_hidden.style.display =  "inline";
+    basket_btn.removeEventListener('click', showBasket) 
 search_input.placeholder = 'Filter by Name, Species, & Planet'
  select.style.display = "none"
    div_cards.innerHTML = "";
@@ -131,6 +140,18 @@ for (let div of div_cards.children) {
 }
 }
 
+page_hidden.addEventListener('click', return_pages)
+function return_pages() {
+    count_n = 0;
+    page.innerText = 0;
+    basket_btn.addEventListener('click', showBasket) 
+    direction_buttons.style.display = "grid";
+    basket.style.display = "flex";
+    page_hidden.style.display =  "none";
+  
+    prepare();
+ 
+} 
 
 basket_btn.addEventListener('click', showBasket)
 function showBasket() {
@@ -203,8 +224,10 @@ return div_card
 }
 
 
+
 btn_next.addEventListener('click', moveOn)
 function moveOn() {
+
 search_input.placeholder = 'Filter by name';
  select.style.display = "inline"
 div_cards.innerHTML = "";
@@ -213,10 +236,11 @@ async function prepare() {
     let response = await fetch(data.info.next);
         data = await response.json();
         data.results.forEach(elem => { div_cards.append(create_card(elem)) })
+   
     create_options(data)
     clearValue()
     sort_cards()
-  
+   
 
 }
 prepare() 
@@ -224,6 +248,24 @@ prepare()
 data.results.forEach(elem => { div_cards.append(create_card(elem)) })
 }
 }
+
+let count_n = 0;
+page.textContent = count_n;
+btn_next.addEventListener('click', count_next)
+btn_back.addEventListener('click', count_back)
+function count_next() {
+    if (count_n < 41) {
+ count_n++;
+ page.textContent = count_n;
+    } else {page.textContent = ".."}
+ }
+function count_back() { 
+    if (count_n > 0) {
+count_n--;
+page.textContent = count_n;
+    } else {page.textContent = ".."}
+}
+
 
 
 btn_back.addEventListener('click', moveBack)
@@ -236,6 +278,7 @@ async function prepare() {
     let response = await fetch(data.info.prev);
         data = await response.json();
         data.results.forEach(elem => { div_cards.append(create_card(elem)) })
+   
     create_options(data)
     clearValue()
     sort_cards()

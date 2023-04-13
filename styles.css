@@ -101,6 +101,12 @@ h1:hover {
 
 .direction_buttons {
   display: grid;
-  grid-template-columns: 100px 1fr;
-  grid-template-rows: 50px 1fr;
+  grid-template-columns: 150px 50px 50px;
+  grid-template-rows: 50px 50px;
+}
+
+.page,
+.page_hidden {
+  color:rgb(34, 0, 255);
+  font-size: 20px;
 }
