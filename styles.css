@@ -98,3 +98,9 @@ h1:hover {
   overflow: hidden;
   white-space: nowrap;
 }
+
+.direction_buttons {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: 50px 1fr;
+}
