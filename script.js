@@ -15,8 +15,7 @@ basket.className = 'div_basket'
 const basket_btn = document.querySelector('.basket')
 const empty = document.querySelector('.empty')
 const refresh = document.querySelector('.refresh')
-
-
+select.style.width = '260px';
 
 async function prepare() {
     let response = await fetch('https://rickandmortyapi.com/api/character');
@@ -30,9 +29,6 @@ async function prepare() {
    
 }
 prepare()  
-
-
-
 
 function create_options() {
     select.innerHTML = ""
@@ -134,11 +130,6 @@ for (let div of div_cards.children) {
 }
 }
 }
-
-
-
-
-
 
 
 basket_btn.addEventListener('click', showBasket)
