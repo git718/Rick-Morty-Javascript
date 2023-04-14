@@ -41,7 +41,7 @@ prepare()
 
 var i1 = 0;
 var txt1 = 'Rick and Morty Characters list';
-var speed1 = 50; 
+var speed1 = 150; 
 
 function typeWriter1() {
   if (i1 < txt1.length) {
@@ -164,6 +164,7 @@ function return_pages() {
     count_n = 1;
     page.innerText = 1;
     select.style.display = "inline"
+    search_input.style.display = "inline"
     search_input.value = "";
     basket_btn.addEventListener('click', showBasket) 
     direction_buttons.style.display = "grid";
@@ -194,6 +195,8 @@ alert('Basket is empty')
        } else {
 div_cards.innerHTML = ''
 div_cards.append(basket)
+search_input.style.display = 'none'
+select.style.display = 'none'
        }
 }
 
@@ -262,7 +265,7 @@ return div_card
 
 btn_next.addEventListener('click', moveOn)
 function moveOn() {
-
+search_input.style.display = 'inline'
  select.style.display = "inline"
 div_cards.innerHTML = "";
 if (data.info.next !== null) {
@@ -304,6 +307,7 @@ page.textContent = count_n;
 
 btn_back.addEventListener('click', moveBack)
 function moveBack() {
+search_input.style.display = 'inline'
  select.style.display = "inline"
 div_cards.innerHTML = "";
 if (data.info.prev !== null) {
