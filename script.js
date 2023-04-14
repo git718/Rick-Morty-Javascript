@@ -23,9 +23,6 @@ const direction_buttons = document.querySelector(".direction_buttons")
 select.style.cursor = 'pointer'
 const h1 = document.querySelector('.h1')
 
-
-
-
 async function prepare() {
     let response = await fetch('https://rickandmortyapi.com/api/character');
     if (response.ok) {
@@ -43,7 +40,6 @@ h1.addEventListener('click', reload_page)
 function reload_page() {
     location.reload();
 }
-
 
 var i1 = 0;
 var txt1 = 'Rick and Morty Characters list';
@@ -91,8 +87,6 @@ function filterData() {
     } 
 } 
 
-
-
 select.addEventListener('focusout', defaultSelect)
 function defaultSelect() {
       create_options() 
@@ -100,16 +94,14 @@ function defaultSelect() {
       data.results.forEach(elem => { div_cards.append(create_card(elem)) })
 }
 
-
 const search_input = document.createElement('input')
 search_input.style.cursor = 'pointer'
 
 inputButton.append(search_input)
+search_input.setAttribute("Class", "search_input")
 search_input.style.width = '260px'
 search_input.style.height = '30px'
 search_input.placeholder = 'Filter by Name, Species, & Planet'
-
-
 
 search_input.addEventListener('input', sort_cards)
 function sort_cards() {
@@ -126,8 +118,6 @@ function clearValue() {
     sort_cards()
     
 }
-
-
 
 refresh.addEventListener('click', refreshPage)
 function refreshPage() {
@@ -149,8 +139,6 @@ search_input.placeholder = 'Filter by Name, Species, & Planet'
     }
     prepare()
 }
-
-
 
 search_input.removeEventListener('input', sort_cards)
 search_input.removeEventListener("focusout", clearValue)
@@ -177,8 +165,6 @@ function return_pages() {
     basket.style.display = "flex";
     page_hidden.style.display =  "none";
     prepare();
-    
- 
 } 
 
 var i = 0;
@@ -193,7 +179,6 @@ function typeWriter() {
   } 
 }
 
-
 basket_btn.addEventListener('click', showBasket)
 function showBasket() {
 if (basket.innerHTML === '') {
@@ -205,8 +190,6 @@ search_input.style.display = 'none'
 select.style.display = 'none'
        }
 }
-
-
 
 function create_card(object) {
 const div_card = document.createElement('div');
@@ -225,7 +208,6 @@ species.setAttribute('id', 'species');
 const world = document.createElement('span');
 world.style.display = "block"
 world.setAttribute('id', 'world');
-
 
     cardImage.src = object.image;
     name1.textContent = object.name;
@@ -256,7 +238,6 @@ function buy_character()
 
 }
 
-
 empty.addEventListener('click', emptyBasket)
 function emptyBasket() {
     basket.innerHTML = '';
@@ -266,8 +247,6 @@ function emptyBasket() {
 
 return div_card
 }
-
-
 
 btn_next.addEventListener('click', moveOn)
 function moveOn() {
@@ -283,8 +262,6 @@ async function prepare() {
     create_options(data)
     clearValue()
     sort_cards()
-   
-
 }
 prepare() 
 } else {
@@ -308,8 +285,6 @@ count_n--;
 page.textContent = count_n;
     } else {page.textContent = ".."}
 }
-
-
 
 btn_back.addEventListener('click', moveBack)
 function moveBack() {

@@ -41,12 +41,17 @@ span {
   color: #dc1919;
   opacity: 40%;
 }
+.search_input {
+font-family: 'Courier New', Courier, monospace;
+font-size: 12px;
+}
 
 .next,
 .back,
 .basket,
 .refresh,
 .empty {
+  font-family: 'Courier New', Courier, monospace;
   width: 100px;
   height: 30px;
   font-size: 15px;
@@ -57,13 +62,11 @@ span {
   background-image:#ffffff;
 }
 
-
 .buttons {
   display: grid;
   grid-template-columns: 4fr 1fr;
  
 }
-
 
 .card {
   display: flex;
@@ -104,6 +107,7 @@ span {
 }
 
 .page {
+  font-family: 'Courier New', Courier, monospace;
   color:rgb(115, 156, 237);
   font-size: 30px;
 }
