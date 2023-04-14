@@ -13,7 +13,7 @@
 }
 
 body {
-  background-color: antiquewhite;
+  background-color: white;
   background-size: cover;
   margin-left: auto;
   margin-right: auto;
@@ -27,11 +27,11 @@ div.container {
 }
 
 h1 {
-  font-size: 60px;
   font-family: Glossy;
-  color: blueviolet;
+  font-size: 60px;
+  color: #b7f2a6;
   text-align: center;
-  text-shadow: 2px 2px 2px rgb(0, 0, 255);
+  text-shadow: 2px 2px 2px rgb(239, 123, 156);
 }
 
 h2,
@@ -57,6 +57,7 @@ h1:hover {
   border-radius: 5px;
   opacity: 70%;
   cursor: pointer;
+  background-image:#ffffff;
 }
 
 
@@ -101,12 +102,17 @@ h1:hover {
 
 .direction_buttons {
   display: grid;
-  grid-template-columns: 110px 20px 20px;
+  grid-template-columns: 100px 1fr 1fr;
   grid-template-rows: 50px 50px;
 }
 
-.page,
+.page {
+  color:rgb(115, 156, 237);
+  font-size: 30px;
+}
+
 .page_hidden {
-  color:rgb(34, 0, 255);
-  font-size: 20px;
+  font-family: Glossy;
+  color:rgb(0, 149, 255);
+  font-size: 30px;
 }

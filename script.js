@@ -20,6 +20,9 @@ const page = document.querySelector(".page")
 const page_hidden = document.querySelector(".page_hidden")
 page_hidden.style.cursor = 'pointer'
 const direction_buttons = document.querySelector(".direction_buttons")
+select.style.cursor = 'pointer'
+const h1 = document.querySelector('.h1')
+
 
 
 
@@ -35,6 +38,19 @@ async function prepare() {
    
 }
 prepare()  
+
+var i1 = 0;
+var txt1 = 'Rick and Morty Characters list';
+var speed1 = 50; 
+
+function typeWriter1() {
+  if (i1 < txt1.length) {
+    h1.innerHTML += txt1.charAt(i1);
+    i1++;
+    setTimeout(typeWriter1, speed1);
+  } 
+}
+typeWriter1()
 
 function create_options() {
     select.innerHTML = ""
@@ -80,6 +96,7 @@ function defaultSelect() {
 
 
 const search_input = document.createElement('input')
+search_input.style.cursor = 'pointer'
 
 inputButton.append(search_input)
 search_input.style.width = '260px'
@@ -108,6 +125,7 @@ function clearValue() {
 
 refresh.addEventListener('click', refreshPage)
 function refreshPage() {
+    typeWriter();
     direction_buttons.style.display = 'none'
     page_hidden.style.display =  "inline";
     basket_btn.removeEventListener('click', showBasket) 
@@ -156,6 +174,19 @@ function return_pages() {
  
 } 
 
+var i = 0;
+var txt = 'Click this text to get back ..';
+var speed = 100; 
+
+function typeWriter() {
+  if (i < txt.length) {
+    page_hidden.innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  } 
+}
+
+
 basket_btn.addEventListener('click', showBasket)
 function showBasket() {
 if (basket.innerHTML === '') {
@@ -173,6 +204,7 @@ const div_card = document.createElement('div');
 const div_card_hidden = document.createElement('div');
 div_card_hidden.style.display = 'none';
 div_card.className = 'div_one';
+div_card.style.cursor = 'pointer'
 div_card_hidden.className = 'div_hidden';
 const cardImage = document.createElement('img');
 cardImage.style.width = '200px';
