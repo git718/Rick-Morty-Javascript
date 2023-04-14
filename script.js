@@ -39,6 +39,12 @@ async function prepare() {
 }
 prepare()  
 
+h1.addEventListener('click', reload_page) 
+function reload_page() {
+    location.reload();
+}
+
+
 var i1 = 0;
 var txt1 = 'Rick and Morty Characters list';
 var speed1 = 150; 

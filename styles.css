@@ -32,6 +32,7 @@ h1 {
   color: #b7f2a6;
   text-align: center;
   text-shadow: 2px 2px 2px rgb(239, 123, 156);
+  cursor: pointer;
 }
 
 h2,
@@ -39,10 +40,6 @@ span {
   font-family: Glossy;
   color: #dc1919;
   opacity: 40%;
-}
-
-h1:hover {
-  opacity: 50%;
 }
 
 .next,
