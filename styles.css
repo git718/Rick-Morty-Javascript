@@ -35,12 +35,19 @@ h1 {
   cursor: pointer;
 }
 
-h2,
-span {
-  font-family: Glossy;
+h2 {
+  font-family:'Courier New', Courier, monospace;
+  font-size: 20px;
+  opacity: 50%;
   color: #dc1919;
-  opacity: 40%;
 }
+span {
+  font-family:'Courier New', Courier, monospace;
+  font-size: 12px;
+  opacity: 80%;
+  color: #dc199e;
+}
+
 .search_input {
 font-family: 'Courier New', Courier, monospace;
 font-size: 12px;
