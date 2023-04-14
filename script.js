@@ -122,10 +122,12 @@ function clearValue() {
 refresh.addEventListener('click', refreshPage)
 function refreshPage() {
     typeWriter();
+
     direction_buttons.style.display = 'none'
     page_hidden.style.display =  "inline";
     basket_btn.removeEventListener('click', showBasket) 
-search_input.placeholder = 'Filter by Name, Species, & Planet'
+search_input.placeholder = 'Filter by Name, Species, & Planet';
+search_input.style.display = "inline";
  select.style.display = "none"
    div_cards.innerHTML = "";
     for (let i = 1; i <= 42; i++) {
