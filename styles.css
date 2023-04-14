@@ -128,6 +128,7 @@ font-size: 12px;
 
 .page_hidden {
   font-family: Glossy;
+  opacity: 60%;
   color:rgb(0, 149, 255);
   font-size: 30px;
 }
