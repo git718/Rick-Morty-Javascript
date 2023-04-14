@@ -48,6 +48,13 @@ span {
   color: #e642ee;
 }
 
+footer {
+    font-family:'Courier New', Courier, monospace;
+    font-size: 12px;
+    opacity: 70%;
+    color: #6e2cf2;
+}
+
 .search_input {
 font-family: 'Courier New', Courier, monospace;
 font-size: 12px;
