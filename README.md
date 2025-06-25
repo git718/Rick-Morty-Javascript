@@ -1,1 +1,1 @@
-https://anton718.github.io/Rick-Morty-Javascript/
+https://git718.github.io/Rick-Morty-Javascript/
